@@ -6,27 +6,25 @@ int main(){
  int t;
  cin >>t;
  for (int i=1;i<=t;i++){
-    int number[3];
-    cin >> number[0] >> number[1]>>number[2];
-    if(number[0]>number[1]){
-        int temp = number[0];
-        number[0] = number[1];
-        number [1] = temp;
-    }if(number[1]>number[2]){
-        int temp = number[1];
-        number[1] = number[2];
-        number [2] = temp;
-    }if(number[0]>number[2]){
-        int temp = number[0];
-        number[0] = number[2];
-        number [2] = temp;
-    }if(number[0]>number[1]){
-        int temp = number[0];
-        number[0] = number[1];
-        number [1] = temp;
+    int n = 3;
+    int number[n];
+    for (int j=0;j<n;j++){
+        cin >> number[j];
     }
-
-    cout << "Case "<<i<<":"<<" "<<number[0]<<" "<<number[1]<<" "<<number[2]<<endl;
+    for(int j=0;j<n-1;j++){
+        for(int k=0;k<n-1;k++){
+            if(number[k]>number[k+1]){
+                int temp = number[k];
+                number[k] = number[k+1];
+                number[k+1] = temp;
+            }
+        }
+    }
+        cout << "Case "<<i<<":";
+        for (int j=0;j<n;j++){
+            cout <<" "<< number[j];
+        }
+        cout << endl;
 
  }
 return 0;
